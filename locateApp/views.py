@@ -18,7 +18,7 @@ def upload_image(request):
     serializer = ImageUploadSerializer(data=request.data)
     if serializer.is_valid():
         image = serializer.save()
-        image_url = f'http://localhost:5173/view/{image.id}'  # Modify this based on your frontend URL
+        image_url = f'https://imageviewer-view.vercel.app/view/{image.id}'  # Modify this based on your frontend URL
         return Response({'imageUrl': image_url})
     return Response(serializer.errors, status=400)
 # Serve image view and track location
